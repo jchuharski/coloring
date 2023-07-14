@@ -1,6 +1,6 @@
 using Permutations, Statistics
 
-s = read("./hamiltonian stuffs/AdjMats2/PSL(3,3)AdjMat.txt", String)
+s = read("./hamiltonian stuffs/AdjMats2/PSL(2,13)AdjMat.txt", String)
 sz = ""
 for i in s
     if i == ' '
@@ -42,7 +42,7 @@ function coloring(adj_mat)
     return maximum(adj_mat)
 end
 
-print(coloring(adjacency_matrix))
+# print(coloring(adjacency_matrix))
 
 
 
@@ -55,9 +55,11 @@ function PPP(adj_mat)
         inv = Matrix{Int8}(Perm^-1)
         entering = Perm*ad*inv
         color = coloring(entering)
+        if color == 91
+            break
+        end
         append!(ans, color)
     end
     return minimum(ans), maximum(ans), std(ans), mean(ans)
 end
 
-# print(PPP(adjacency_matrix))
