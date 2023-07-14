@@ -1,4 +1,4 @@
-import Pkg; Pkg.add("Permutations"); Pkg.add("Statistics")
+# import Pkg; Pkg.add("Permutations"); Pkg.add("Statistics")
 using Permutations, Statistics
 
 
