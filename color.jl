@@ -2,7 +2,7 @@
 using Permutations, Statistics
 
 
-s = read("./AdjMats2/PSL(2,13)AdjMat.txt", String)
+s = read("./AdjMats2/PSL(3,3)AdjMat.txt", String)
 sz = ""
 for i in s
     if i == ' '
@@ -24,7 +24,7 @@ for i in s
         continue
     end
     if occursin(i, "10")
-        append!(numbers, parse(Int8,i))
+        append!(numbers, parse(Int16,i))
     end
 end
 
@@ -49,15 +49,15 @@ end
 
 
 function PPP(adj_mat)
-    ans = Array{Int8}(undef, 0)
+    ans = Array{Int16}(undef, 0)
     Threads.@threads for i =1:32
         ad = deepcopy(adj_mat)
-        
-        Perm = Matrix{Int8}(RandomPermutation(n))
-        inv = Matrix{Int8}(Perm^-1)
+        Perm = Matrix{Int16}(RandomPermutation(n))
+        inv = Matrix{Int16}(Perm^-1)
         entering = Perm*ad*inv
         color = coloring(entering)
-        if color == 91
+        if color == 117
+            append!(ans, color)
             break
         end
         append!(ans, color)
