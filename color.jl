@@ -1,4 +1,6 @@
+import Pkg; Pkg.add("Permutations"); Pkg.add("Statistics")
 using Permutations, Statistics
+
 
 s = read("./AdjMats2/PSL(2,13)AdjMat.txt", String)
 sz = ""
@@ -64,3 +66,4 @@ function PPP(adj_mat)
 end
 
 
+print(PPP(adjacency_matrix))
