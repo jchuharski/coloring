@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -o lasso_results.txt
+#SBATCH -o color_results.txt
 #SBATCH --nodes=1 # Number of node
 #SBATCH --ntasks=1 # Number of tasks
 #SBATCH --cpus-per-task=32 # How many threads to assign

@@ -1,6 +1,6 @@
 using Permutations, Statistics
 
-s = read("./hamiltonian stuffs/AdjMats2/PSL(2,13)AdjMat.txt", String)
+s = read("./AdjMats2/PSL(2,13)AdjMat.txt", String)
 sz = ""
 for i in s
     if i == ' '
@@ -48,7 +48,7 @@ end
 
 function PPP(adj_mat)
     ans = Array{Int8}(undef, 0)
-    Threads.@threads for i =1:20
+    Threads.@threads for i =1:32
         ad = deepcopy(adj_mat)
         
         Perm = Matrix{Int8}(RandomPermutation(n))
@@ -62,4 +62,5 @@ function PPP(adj_mat)
     end
     return minimum(ans), maximum(ans), std(ans), mean(ans)
 end
+
 
